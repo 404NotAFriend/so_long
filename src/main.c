@@ -6,11 +6,12 @@
 /*   By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 13:51:25 by bramalho@st       #+#    #+#             */
-/*   Updated: 2025/12/04 15:10:57 by bramalho@st      ###   ########.fr       */
+/*   Updated: 2025/12/16 11:58:29 by bramalho@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+#include "get_next_line.h"
 
 static int	check_file_extension(char *filename)
 {
@@ -33,7 +34,9 @@ int	main(int argc, char **argv)
 	if (!check_file_extension(argv[1]))
 		error_exit(ERR_FILE_EXTENSION);
 	ft_bzero(&game, sizeof(t_game));
-	ft_printf("Arguments Validated!\n");
+	ft_printf("\n\n✅ Arguments Validated!\n");
 	ft_printf("Map file: %s\n", argv[1]);
-	return (0);
+	read_map(argv[1], &game);
+	print_map(&game);
+	cleanup_and_exit(&game, 0);
 }

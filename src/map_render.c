@@ -1,42 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cleanup.c                                          :+:      :+:    :+:   */
+/*   map_render.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/04 14:59:53 by bramalho@st       #+#    #+#             */
-/*   Updated: 2025/12/16 11:05:27 by bramalho@st      ###   ########.fr       */
+/*   Created: 2025/12/16 11:04:42 by bramalho@st       #+#    #+#             */
+/*   Updated: 2025/12/16 12:04:32 by bramalho@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	error_exit(char *message)
-{
-	ft_putstr_fd("Error\n", 2);
-	ft_putstr_fd(message, 2);
-	exit(1);
-}
-
-void	free_map(t_game *game)
+void	print_map(t_game *game)
 {
 	int	i;
 
-	if (!game->map.grid)
-		return ;
+	ft_printf("\n✅ Map read successfully!\n");
+	ft_printf("Width: %d, Height: %d\n\n", game->map.width, game->map.height);
 	i = 0;
 	while (i < game->map.height)
 	{
-		free(game->map.grid[i]);
+		ft_printf("%s", game->map.grid[i]);
 		i++;
 	}
-	free(game->map.grid);
-	game->map.grid = NULL;
-}
-
-void	cleanup_and_exit(t_game *game, int exit_code)
-{
-	free_map(game);
-	exit(exit_code);
+	count_map_elements(game);
 }

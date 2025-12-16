@@ -6,7 +6,7 @@
 /*   By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 15:20:28 by bramalho@st       #+#    #+#             */
-/*   Updated: 2025/12/04 15:40:16 by bramalho@st      ###   ########.fr       */
+/*   Updated: 2025/12/16 11:02:15 by bramalho@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static char	**realloc_grid(char **grid, int new_size)
 	{
 		while (i < new_size - 1)
 		{
-			new_grid[i] = grid [i];
+			new_grid[i] = grid[i];
 			i++;
 		}
 		free(grid);

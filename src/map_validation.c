@@ -1,42 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cleanup.c                                          :+:      :+:    :+:   */
+/*   map_validation.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/04 14:59:53 by bramalho@st       #+#    #+#             */
-/*   Updated: 2025/12/16 11:05:27 by bramalho@st      ###   ########.fr       */
+/*   Created: 2025/12/16 11:04:46 by bramalho@st       #+#    #+#             */
+/*   Updated: 2025/12/16 12:20:42 by bramalho@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	error_exit(char *message)
-{
-	ft_putstr_fd("Error\n", 2);
-	ft_putstr_fd(message, 2);
-	exit(1);
-}
-
-void	free_map(t_game *game)
+int check_rectangular(t_game *game)
 {
 	int	i;
+	int	len;
 
-	if (!game->map.grid)
-		return ;
-	i = 0;
+	if (game->map.height == 0)
+		return (0);
+	len = ft_strlen(game->map.grid[0]);
+	if (game->map.grid[0][len - 1] == '\n')
+		len--;
+	i = 1;
 	while (i < game->map.height)
 	{
-		free(game->map.grid[i]);
+		if((int)ft_strlen(game->map.grid[i]) != len
+			&& (int)ft_strlen(game->map.grid[i]) != len + 1)
+			return (0);
 		i++;
 	}
-	free(game->map.grid);
-	game->map.grid = NULL;
-}
-
-void	cleanup_and_exit(t_game *game, int exit_code)
-{
-	free_map(game);
-	exit(exit_code);
+	return (1);
 }

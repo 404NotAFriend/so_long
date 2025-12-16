@@ -6,7 +6,7 @@
 #    By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/04 13:34:57 by bramalho@st       #+#    #+#              #
-#    Updated: 2025/12/04 14:42:49 by bramalho@st      ###   ########.fr        #
+#    Updated: 2025/12/16 12:13:54 by bramalho@st      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,7 @@ INC_DIR = includes
 GNL_DIR = GNL
 
 LIBFT_DIR = libft
+PRINTF_DIR = ft_printf
 MLX_DIR = minilibx-linux
 
 # ============================================================================ #
@@ -53,25 +54,28 @@ SRCS =	$(SRC_DIR)/main.c \
 		$(SRC_DIR)/map_render.c \
 		$(SRC_DIR)/input_handler.c \
 		$(SRC_DIR)/event_checker.c \
+		$(SRC_DIR)/utils.c \
 		$(SRC_DIR)/cleanup.c
 
 GNL_OBJS = $(GNL_SRCS:$(GNL_DIR)/%.c=$(OBJ_DIR)/%.o)
 SRC_OBJS = $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 OBJS = $(GNL_OBJS) $(SRC_OBJS)
+
 # ============================================================================ #
 #                                 LIBRARIES                                    #
 # ============================================================================ #
 
-LIBFT =	$(LIBFT_DIR)/libft.a
-MLX =	$(MLX_DIR)/libmlx.a
+LIBFT =		$(LIBFT_DIR)/libft.a
+PRINTF =	$(PRINTF_DIR)/libftprintf.a
+MLX =		$(MLX_DIR)/libmlx.a
 
 # ============================================================================ #
 #                                  FLAGS                                       #
 # ============================================================================ #
 
-INCLUDES = -I$(INC_DIR) -I$(LIBFT_DIR) -I$(MLX_DIR) -I$(GNL_DIR)
-LIBS_DIR = -L$(LIBFT_DIR) -L$(MLX_DIR)
-LIBS = -lft -lmlx -lXext -lX11 -lm
+INCLUDES = -I$(INC_DIR) -I$(LIBFT_DIR) -I$(PRINTF_DIR) -I$(MLX_DIR) -I$(GNL_DIR)
+LIBS_DIR = -L$(LIBFT_DIR) -L$(PRINTF_DIR) -L$(MLX_DIR)
+LIBS = -lftprintf -lft -lmlx -lXext -lX11 -lm
 
 # ============================================================================ #
 #                                  RULES                                       #
@@ -79,14 +83,14 @@ LIBS = -lft -lmlx -lXext -lX11 -lm
 
 all:	$(NAME)
 
-$(NAME): $(OBJS) $(LIBFT) $(MLX)
+$(NAME): $(OBJS) $(LIBFT) $(PRINTF) $(MLX)
 	$(CC) $(CFLAGS) $(OBJS) $(LIBS_DIR) $(LIBS) -o $(NAME)
-	@echo "$(GREEN) $(NAME) compiled successfully!$(RESET)"
+	@echo "$(GREEN)✅ $(NAME) compiled successfully!$(RESET)"
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(OBJ_DIR)
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
-	@echo "$(GREEN) $(RESET) Compiled $<"
+	@echo "$(GREEN)✓$(RESET) Compiled $<"
 
 $(OBJ_DIR)/%.o: $(GNL_DIR)/%.c
 	@mkdir -p $(OBJ_DIR)
@@ -97,6 +101,10 @@ $(LIBFT):
 	@echo "$(GREEN)Compiling libft...$(RESET)"
 	@$(MAKE) -C $(LIBFT_DIR) --no-print-directory
 
+$(PRINTF):
+	@echo "$(GREEN)Compiling ft_printf...$(RESET)"
+	@$(MAKE) -C $(PRINTF_DIR) --no-print-directory
+
 $(MLX):
 	@echo "$(GREEN)Compiling MiniLibX...$(RESET)"
 	@$(MAKE) -C $(MLX_DIR) --no-print-directory
@@ -104,13 +112,15 @@ $(MLX):
 clean:
 	@rm -rf $(OBJ_DIR)
 	@$(MAKE) -C $(LIBFT_DIR) clean --no-print-directory
+	@$(MAKE) -C $(PRINTF_DIR) clean --no-print-directory
 	@$(MAKE) -C $(MLX_DIR) clean --no-print-directory
-	@echo "$(GREEN) Object files cleaned!$(RESET)"
+	@echo "$(GREEN)🧹 Object files cleaned!$(RESET)"
 
 fclean: clean
 	@rm -f $(NAME)
 	@$(MAKE) -C $(LIBFT_DIR) fclean --no-print-directory
-	@echo "$(GREEN) Everything cleaned!$(RESET)"
+	@$(MAKE) -C $(PRINTF_DIR) fclean --no-print-directory
+	@echo "$(GREEN)🗑️  Everything cleaned!$(RESET)"
 
 re: fclean all
 

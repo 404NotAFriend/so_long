@@ -6,7 +6,7 @@
 /*   By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 12:46:39 by bramalho@st       #+#    #+#             */
-/*   Updated: 2025/12/04 13:31:04 by bramalho@st      ###   ########.fr       */
+/*   Updated: 2025/12/16 12:05:58 by bramalho@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@
 # include <stdio.h>
 # include "../libft/libft.h"
 # include "../minilibx-linux/mlx.h"
+# include "../ft_printf/ft_printf.h"
+# include "../GNL/get_next_line.h"
 # include "constants.h"
 # include "structs.h"
 
@@ -41,6 +43,9 @@ int		check_rectangular(t_game *game);
 int		check_walls(t_game *game);
 int		check_characters(t_game *game);
 int		check_valid_path(t_game *game);
+void	count_map_elements(t_game *game);
+void	count_elements_loop(t_game *game, int *players, int *exits,
+			int *collectibles);
 
 /* ========================================================================== */
 /*                              INITIALIZATION                                */
@@ -56,6 +61,7 @@ void	load_sprites(t_game *game);
 
 void	render_game(t_game *game);
 void	render_tile(t_game *game, int x, int y, char tile);
+void	print_map(t_game *game);
 
 /* ========================================================================== */
 /*                              INPUT HANDLER                                 */
