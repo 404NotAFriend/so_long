@@ -6,7 +6,7 @@
 /*   By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 12:10:32 by bramalho@st       #+#    #+#             */
-/*   Updated: 2025/12/16 12:11:24 by bramalho@st      ###   ########.fr       */
+/*   Updated: 2025/12/16 14:44:37 by bramalho@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	count_map_elements(t_game *game)
 	collectibles = 0;
 	count_elements_loop(game, &players, &exits, &collectibles);
 	ft_printf("\n📊 Map Statistics:\n");
-	ft_printf("Players (P): %d\n", players);
-	ft_printf("Exits (E): %d\n", exits);
-	ft_printf("Collectibles (C): %d\n\n", collectibles);
+	ft_printf("👤 Players (P): %d\n", players);
+	ft_printf("🚪 Exits (E): %d\n", exits);
+	ft_printf("💎 Collectibles (C): %d\n\n", collectibles);
 }
