@@ -6,7 +6,7 @@
 /*   By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 11:04:46 by bramalho@st       #+#    #+#             */
-/*   Updated: 2025/12/16 14:37:46 by bramalho@st      ###   ########.fr       */
+/*   Updated: 2026/01/02 18:17:51 by bramalho@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	check_rectangular(t_game *game)
 	i = 1;
 	while (i < game->map.height)
 	{
-		if((int)ft_strlen(game->map.grid[i]) != len
+		if ((int)ft_strlen(game->map.grid[i]) != len
 			&& (int)ft_strlen(game->map.grid[i]) != len + 1)
 			return (0);
 		i++;
@@ -35,19 +35,19 @@ int	check_rectangular(t_game *game)
 
 int	check_walls(t_game *game)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (i < game->map.width)
 	{
-		if(game->map.grid[0][i] != '1'
+		if (game->map.grid[0][i] != '1'
 			|| game->map.grid[game->map.height - 1][i] != '1')
 			return (0);
 		i++;
 	}
 	i = 0;
-	while ( i < game->map.height)
+	while (i < game->map.height)
 	{
 		j = 0;
 		while (game->map.grid[i][j] && game->map.grid[i][j] != '\n')
@@ -60,17 +60,24 @@ int	check_walls(t_game *game)
 	return (1);
 }
 
+static void	store_element_position(t_game *game, char c, int i, int j)
+{
+	if (c == 'P')
+	{
+		game->player.x = j;
+		game->player.y = i;
+	}
+	else if (c == 'E')
+	{
+		game->map.exit_x = j;
+		game->map.exit_y = i;
+	}
+}
+
 int	check_characters(t_game *game)
 {
 	int	i;
 	int	j;
-	int	counterP;
-	int	counterE;
-	int	counterC;
-
-	counterP = 0;
-	counterE = 0;
-	counterC = 0;
 
 	i = 0;
 	while (i < game->map.height)
@@ -78,29 +85,19 @@ int	check_characters(t_game *game)
 		j = 0;
 		while (j < game->map.width)
 		{
-			if(game->map.grid[i][j] == 'P')
-			{
-				counterP++;
-				game->player.x = j;
-				game->player.y = i;
-			}
-			else if(game->map.grid[i][j] == 'E')
-			{
-				counterE++;
-				game->map.exit_x = j;
-				game->map.exit_y = i;
-			}
-			else if(game->map.grid[i][j] == 'C')
-				counterC++;
-			else if (game->map.grid[i][j] != '0' && game->map.grid[i][j] != '1'
+			store_element_position(game, game->map.grid[i][j], i, j);
+			if (game->map.grid[i][j] != 'P'
+				&& game->map.grid[i][j] != 'E'
+				&& game->map.grid[i][j] != 'C'
+				&& game->map.grid[i][j] != '0'
+				&& game->map.grid[i][j] != '1'
 				&& game->map.grid[i][j] != '\n')
 				return (0);
 			j++;
 		}
 		i++;
 	}
-	game->map.collectibles_counter = counterC;
-		return (1);
+	return (1);
 }
 
 int	validate_map(t_game *game)
@@ -112,7 +109,6 @@ int	validate_map(t_game *game)
 	players = 0;
 	exits = 0;
 	collectibles = 0;
-
 	if (!check_rectangular(game))
 		error_exit(ERR_MAP_NOT_RECTANGULAR);
 	if (!check_walls(game))
