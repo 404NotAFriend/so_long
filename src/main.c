@@ -6,7 +6,7 @@
 /*   By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 13:51:25 by bramalho@st       #+#    #+#             */
-/*   Updated: 2026/01/03 09:13:22 by bramalho@st      ###   ########.fr       */
+/*   Updated: 2026/01/03 09:48:16 by bramalho@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int	main(int argc, char **argv)
 	validate_map(&game);
 	print_map(&game);
 	init_game(&game);
+	load_sprites(&game);
 	ft_printf("✅ Window created!\n");
 	mlx_hook(game.gfx.window, 17, 0, close_window, &game);
 	mlx_loop(game.gfx.mlx);
