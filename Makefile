@@ -6,7 +6,7 @@
 #    By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/04 13:34:57 by bramalho@st       #+#    #+#              #
-#    Updated: 2025/12/16 12:13:54 by bramalho@st      ###   ########.fr        #
+#    Updated: 2026/01/02 18:37:28 by bramalho@st      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,6 +50,7 @@ GNL_SRCS =	$(GNL_DIR)/get_next_line.c \
 SRCS =	$(SRC_DIR)/main.c \
 		$(SRC_DIR)/map_reader.c \
 		$(SRC_DIR)/map_validation.c \
+		$(SRC_DIR)/map_path_validation.c\
 		$(SRC_DIR)/map_initialization.c \
 		$(SRC_DIR)/map_render.c \
 		$(SRC_DIR)/input_handler.c \

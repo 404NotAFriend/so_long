@@ -6,7 +6,7 @@
 /*   By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 11:04:46 by bramalho@st       #+#    #+#             */
-/*   Updated: 2026/01/02 18:17:51 by bramalho@st      ###   ########.fr       */
+/*   Updated: 2026/01/03 08:00:37 by bramalho@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,5 +122,8 @@ int	validate_map(t_game *game)
 		error_exit(ERR_MAP_NO_EXIT);
 	if (collectibles < 1)
 		error_exit(ERR_MAP_NO_COLLECTIBLES);
+	game->map.collectibles_counter = collectibles;
+	if (!check_valid_path(game))
+		error_exit(ERR_MAP_NO_PATH);
 	return (1);
 }
