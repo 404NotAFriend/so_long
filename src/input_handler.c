@@ -6,7 +6,7 @@
 /*   By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 11:04:27 by bramalho@st       #+#    #+#             */
-/*   Updated: 2026/01/15 19:37:53 by bramalho@st      ###   ########.fr       */
+/*   Updated: 2026/01/15 19:55:48 by bramalho@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,17 @@ int	key_press(int keycode, t_game *game)
 	else if (keycode == KEY_S)
 		move_player(game, 0, 1);
 	else if (keycode == KEY_A)
+	{
+		game->player.facing_right = 0;
 		move_player(game, -1, 0);
+	}
 	else if (keycode == KEY_D)
+	{
+		game->player.facing_right = 1;
 		move_player(game, 1, 0);
+	}
+	else if (keycode == KEY_SPACE)
+		attack_enemy(game);
 	return (0);
 }
 

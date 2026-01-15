@@ -6,7 +6,7 @@
 /*   By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 11:04:42 by bramalho@st       #+#    #+#             */
-/*   Updated: 2026/01/15 19:13:30 by bramalho@st      ###   ########.fr       */
+/*   Updated: 2026/01/15 20:09:27 by bramalho@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,16 +73,23 @@ void	render_tile(t_game *game, int x, int y, char tile)
 	if (tile != '1')
 		mlx_put_image_to_window(game->gfx.mlx, game->gfx.window,
 			game->gfx.img_floor, x * TILE_SIZE, y * TILE_SIZE);
+	if (tile == 'D')
+		draw_transparent_sprite(game, game->gfx.img_dead_enemy,
+			x * TILE_SIZE, y * TILE_SIZE);
 	if (game->player.x == x && game->player.y == y)
 	{
-		draw_transparent_sprite(game, game->gfx.img_player,
-			x * TILE_SIZE, y * TILE_SIZE);
+		if (game->player.facing_right)
+			draw_transparent_sprite(game, game->gfx.img_player,
+				x * TILE_SIZE, y * TILE_SIZE);
+		else
+			draw_transparent_sprite(game, game->gfx.img_player_left,
+				x * TILE_SIZE, y * TILE_SIZE);
 		return ;
 	}
 	img = get_tile_sprite(game, tile);
 	if (!img)
 		return ;
-	if (tile == '0' || tile == '1')
+	if (tile == '0' || tile == '1' || tile == 'D')
 		mlx_put_image_to_window(game->gfx.mlx, game->gfx.window,
 			img, x * TILE_SIZE, y * TILE_SIZE);
 	else

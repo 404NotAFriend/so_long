@@ -6,7 +6,7 @@
 /*   By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 12:47:07 by bramalho@st       #+#    #+#             */
-/*   Updated: 2025/12/04 13:21:54 by bramalho@st      ###   ########.fr       */
+/*   Updated: 2026/01/15 20:04:04 by bramalho@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ typedef struct s_player
 	int	x;
 	int	y;
 	int	moves_counter;
+	int	facing_right;
 }	t_player;
 
 /* ========================================================================== */
@@ -52,7 +53,10 @@ typedef struct s_graphics
 	void	*img_collectibles;
 	void	*img_exit;
 	void	*img_player;
-	void	*img_enemies;
+	void	*img_player_left;
+	void	*img_enemy;
+	void	*img_dead_enemy;
+	void	*img_attack;
 	int		tile_size;
 }	t_graphics;
 

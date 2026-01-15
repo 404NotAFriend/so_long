@@ -6,7 +6,7 @@
 /*   By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 11:04:20 by bramalho@st       #+#    #+#             */
-/*   Updated: 2026/01/04 13:49:12 by bramalho@st      ###   ########.fr       */
+/*   Updated: 2026/01/15 20:06:43 by bramalho@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,10 @@ void	load_sprites(t_game *game)
 			"textures/player.xpm", &img_width, &img_heigth);
 	if (!game->gfx.img_player)
 		error_exit("❌ Failed to load player.xpm");
+	game->gfx.img_player_left = mlx_xpm_file_to_image(game->gfx.mlx,
+			"textures/player_left.xpm", &img_width, &img_heigth);
+	if (!game->gfx.img_player_left)
+		error_exit("❌ Failed to load player_left.xpm");
 	game->gfx.img_collectibles = mlx_xpm_file_to_image(game->gfx.mlx,
 			"textures/collectible.xpm", &img_width, &img_heigth);
 	if (!game->gfx.img_collectibles)
