@@ -6,7 +6,7 @@
 /*   By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 12:47:07 by bramalho@st       #+#    #+#             */
-/*   Updated: 2026/01/15 20:04:04 by bramalho@st      ###   ########.fr       */
+/*   Updated: 2026/01/15 21:10:00 by bramalho@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ typedef struct s_map
 	int		height;
 	int		collectibles_counter;
 	int		collected_counter;
+	int		enemies_counter;
+	int		enemies_killed;
 	int		exit_x;
 	int		exit_y;
 }	t_map;

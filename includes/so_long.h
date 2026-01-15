@@ -6,7 +6,7 @@
 /*   By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 12:46:39 by bramalho@st       #+#    #+#             */
-/*   Updated: 2025/12/16 12:05:58 by bramalho@st      ###   ########.fr       */
+/*   Updated: 2026/01/15 21:10:22 by bramalho@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ int		close_window(t_game *game);
 /* ========================================================================== */
 
 void	move_player(t_game *game, int dx, int dy);
+void	attack_enemy(t_game *game);
 void	check_collectible(t_game *game, int x, int y);
 void	check_exit(t_game *game, int x, int y);
 

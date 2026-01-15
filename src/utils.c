@@ -6,7 +6,7 @@
 /*   By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 12:10:32 by bramalho@st       #+#    #+#             */
-/*   Updated: 2025/12/16 14:44:37 by bramalho@st      ###   ########.fr       */
+/*   Updated: 2026/01/15 21:20:51 by bramalho@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ void	count_elements_loop(t_game *game, int *players, int *exits,
 				(*exits)++;
 			else if (game->map.grid[i][j] == 'C')
 				(*collectibles)++;
+			else if (game->map.grid[i][j] == 'N')
+				game->map.enemies_counter++;
 			j++;
 		}
 		i++;

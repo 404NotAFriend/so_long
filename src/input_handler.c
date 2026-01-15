@@ -6,7 +6,7 @@
 /*   By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 11:04:27 by bramalho@st       #+#    #+#             */
-/*   Updated: 2026/01/15 19:55:48 by bramalho@st      ###   ########.fr       */
+/*   Updated: 2026/01/15 21:22:03 by bramalho@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,16 @@ static void	handle_collectible(t_game *game, int new_x, int new_y)
 
 static void	handle_exit(t_game *game)
 {
-	if (game->map.collected_counter == game->map.collectibles_counter)
+	if (game->map.collected_counter == game->map.collectibles_counter
+		&& game->map.enemies_killed == game->map.enemies_counter)
 	{
 		game->player.moves_counter++;
 		ft_printf("🎉 You won in %d moves!\n", game->player.moves_counter);
 		cleanup_and_exit(game, 0);
+	}
+	else
+	{
+		ft_printf("⚠️  Collect all items and kill all enemies first!\n");
 	}
 }
 
@@ -71,6 +76,11 @@ void	move_player(t_game *game, int dx, int dy)
 	target_tile = game->map.grid[new_y][new_x];
 	if (target_tile == '1')
 		return ;
+	if (target_tile == 'N')  // ← ADD THIS
+	{
+		ft_printf("💀 You touched an enemy and died!\n");
+		cleanup_and_exit(game, 0);
+	}
 	handle_collectible(game, new_x, new_y);
 	if (target_tile == 'E')
 		handle_exit(game);

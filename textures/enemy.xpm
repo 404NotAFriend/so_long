@@ -1,8 +1,7 @@
 /* XPM */
-static const char *enemy[] = {
-/* columns rows colors chars-per-pixel */
-"32 32 16 1 ",
-"  c None",
+static char *enemy[] = {
+"32 32 16 1",
+"  c #FF00FF",
 ". c black",
 "X c #60BE4E",
 "o c #347145",
@@ -18,13 +17,12 @@ static const char *enemy[] = {
 "- c #724038",
 "; c black",
 ": c black",
-/* pixels */
 "                                ",
 "                                ",
 "                                ",
 "         ...        ...         ",
-"       ..XXX..    ..XXX.. .     ",
-"      .XXXXXXo....oXXXXXX..     ",
+"       ..XXX..    ..XXX..       ",
+"      .XXXXXXo....oXXXXXX.      ",
 "     .OoooooXXXXXXXXooooo.+.    ",
 "      ..@@#O.oXXXXo.O#@@..$.    ",
 "        ..@#...XX...#@.. .$.    ",

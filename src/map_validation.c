@@ -6,7 +6,7 @@
 /*   By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 11:04:46 by bramalho@st       #+#    #+#             */
-/*   Updated: 2026/01/03 08:00:37 by bramalho@st      ###   ########.fr       */
+/*   Updated: 2026/01/15 21:19:20 by bramalho@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ int	check_characters(t_game *game)
 			if (game->map.grid[i][j] != 'P'
 				&& game->map.grid[i][j] != 'E'
 				&& game->map.grid[i][j] != 'C'
+				&& game->map.grid[i][j] != 'N'
 				&& game->map.grid[i][j] != '0'
 				&& game->map.grid[i][j] != '1'
 				&& game->map.grid[i][j] != '\n')

@@ -6,7 +6,7 @@
 #    By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/04 13:34:57 by bramalho@st       #+#    #+#              #
-#    Updated: 2026/01/02 18:37:28 by bramalho@st      ###   ########.fr        #
+#    Updated: 2026/01/15 21:16:41 by bramalho@st      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,7 +54,7 @@ SRCS =	$(SRC_DIR)/main.c \
 		$(SRC_DIR)/map_initialization.c \
 		$(SRC_DIR)/map_render.c \
 		$(SRC_DIR)/input_handler.c \
-		$(SRC_DIR)/event_checker.c \
+		$(SRC_DIR)/enemy_handler.c \
 		$(SRC_DIR)/utils.c \
 		$(SRC_DIR)/cleanup.c
 

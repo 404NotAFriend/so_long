@@ -6,7 +6,7 @@
 /*   By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 11:04:42 by bramalho@st       #+#    #+#             */
-/*   Updated: 2026/01/15 20:09:27 by bramalho@st      ###   ########.fr       */
+/*   Updated: 2026/01/15 21:20:28 by bramalho@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ static void	*get_tile_sprite(t_game *game, char tile)
 		return (game->gfx.img_collectibles);
 	else if (tile == 'E')
 		return (game->gfx.img_exit);
+	else if (tile == 'N')
+		return (game->gfx.img_enemy);
 	return (NULL);
 }
 
@@ -90,10 +92,10 @@ void	render_tile(t_game *game, int x, int y, char tile)
 	if (!img)
 		return ;
 	if (tile == '0' || tile == '1' || tile == 'D')
-		mlx_put_image_to_window(game->gfx.mlx, game->gfx.window,
-			img, x * TILE_SIZE, y * TILE_SIZE);
-	else
-		draw_transparent_sprite(game, img, x * TILE_SIZE, y * TILE_SIZE);
+	mlx_put_image_to_window(game->gfx.mlx, game->gfx.window,
+		img, x * TILE_SIZE, y * TILE_SIZE);
+else
+	draw_transparent_sprite(game, img, x * TILE_SIZE, y * TILE_SIZE);
 }
 
 void	render_game(t_game *game)
