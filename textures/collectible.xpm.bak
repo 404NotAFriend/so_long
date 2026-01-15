@@ -44,7 +44,7 @@ static const char *collectible[] = {
 "s c #A18266",
 "d c #A28366",
 "f c #A28367",
-"g c #FF00FF",
+"g c None",
 /* pixels */
 "gggggggggggggggggggggggggggggggg",
 "gggggggggggggggggggggggggggggggg",
