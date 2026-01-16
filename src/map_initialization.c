@@ -6,9 +6,11 @@
 /*   By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 11:04:20 by bramalho@st       #+#    #+#             */
-/*   Updated: 2026/01/15 21:24:23 by bramalho@st      ###   ########.fr       */
+/*   Updated: 2026/01/16 01:27:42 by bramalho@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "so_long.h"
 
 #include "so_long.h"
 
@@ -25,30 +27,58 @@ void	init_game(t_game *game)
 		error_exit(ERR_WINDOW);
 }
 
-void	load_sprites(t_game *game)
+static void	load_basic_sprites(t_game *game)
 {
 	int	img_width;
-	int	img_heigth;
+	int	img_height;
 
 	game->gfx.img_floor = mlx_xpm_file_to_image(game->gfx.mlx,
-			"textures/floor.xpm", &img_width, &img_heigth);
+			"textures/floor.xpm", &img_width, &img_height);
 	game->gfx.img_wall = mlx_xpm_file_to_image(game->gfx.mlx,
-			"textures/wall.xpm", &img_width, &img_heigth);
-	game->gfx.img_player = mlx_xpm_file_to_image(game->gfx.mlx,
-			"textures/player.xpm", &img_width, &img_heigth);
-	game->gfx.img_player_left = mlx_xpm_file_to_image(game->gfx.mlx,
-			"textures/player_left.xpm", &img_width, &img_heigth);
+			"textures/wall.xpm", &img_width, &img_height);
 	game->gfx.img_collectibles = mlx_xpm_file_to_image(game->gfx.mlx,
-			"textures/collectible.xpm", &img_width, &img_heigth);
+			"textures/collectible.xpm", &img_width, &img_height);
 	game->gfx.img_exit = mlx_xpm_file_to_image(game->gfx.mlx,
-			"textures/exit.xpm", &img_width, &img_heigth);
-	game->gfx.img_enemy = mlx_xpm_file_to_image(game->gfx.mlx,
-			"textures/enemy.xpm", &img_width, &img_heigth);
-	game->gfx.img_dead_enemy = mlx_xpm_file_to_image(game->gfx.mlx,
-			"textures/dead_enemy.xpm", &img_width, &img_heigth);
+			"textures/exit.xpm", &img_width, &img_height);
 	if (!game->gfx.img_floor || !game->gfx.img_wall
-		|| !game->gfx.img_player || !game->gfx.img_player_left
-		|| !game->gfx.img_collectibles || !game->gfx.img_exit
-		|| !game->gfx.img_enemy || !game->gfx.img_dead_enemy)
+		|| !game->gfx.img_collectibles || !game->gfx.img_exit)
 		error_exit(ERR_IMAGE);
+}
+
+static void	load_player_sprites(t_game *game)
+{
+	int	img_width;
+	int	img_height;
+
+	game->gfx.img_player = mlx_xpm_file_to_image(game->gfx.mlx,
+			"textures/player.xpm", &img_width, &img_height);
+	game->gfx.img_player_left = mlx_xpm_file_to_image(game->gfx.mlx,
+			"textures/player_left.xpm", &img_width, &img_height);
+	game->gfx.img_attack = mlx_xpm_file_to_image(game->gfx.mlx,
+			"textures/player_attack.xpm", &img_width, &img_height);
+	game->gfx.img_attack_left = mlx_xpm_file_to_image(game->gfx.mlx,
+			"textures/player_attack_left.xpm", &img_width, &img_height);
+	if (!game->gfx.img_player || !game->gfx.img_player_left
+		|| !game->gfx.img_attack || !game->gfx.img_attack_left)
+		error_exit(ERR_IMAGE);
+}
+
+static void	load_enemy_sprites(t_game *game)
+{
+	int	img_width;
+	int	img_height;
+
+	game->gfx.img_enemy = mlx_xpm_file_to_image(game->gfx.mlx,
+			"textures/enemy.xpm", &img_width, &img_height);
+	game->gfx.img_dead_enemy = mlx_xpm_file_to_image(game->gfx.mlx,
+			"textures/dead_enemy.xpm", &img_width, &img_height);
+	if (!game->gfx.img_enemy || !game->gfx.img_dead_enemy)
+		error_exit(ERR_IMAGE);
+}
+
+void	load_sprites(t_game *game)
+{
+	load_basic_sprites(game);
+	load_player_sprites(game);
+	load_enemy_sprites(game);
 }

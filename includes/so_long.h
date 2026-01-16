@@ -6,7 +6,7 @@
 /*   By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 12:46:39 by bramalho@st       #+#    #+#             */
-/*   Updated: 2026/01/15 21:10:22 by bramalho@st      ###   ########.fr       */
+/*   Updated: 2026/01/16 01:33:04 by bramalho@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,10 @@ void	load_sprites(t_game *game);
 
 void	render_game(t_game *game);
 void	render_tile(t_game *game, int x, int y, char tile);
+void	render_player(t_game *game, int x, int y);
 void	print_map(t_game *game);
+void	*get_tile_sprite(t_game *game, char tile);
+void	draw_transparent_sprite(t_game *game, void *img, int x, int y);
 
 /* ========================================================================== */
 /*                              INPUT HANDLER                                 */
