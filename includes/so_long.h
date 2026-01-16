@@ -6,7 +6,7 @@
 /*   By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 12:46:39 by bramalho@st       #+#    #+#             */
-/*   Updated: 2026/01/16 02:57:38 by bramalho@st      ###   ########.fr       */
+/*   Updated: 2026/01/16 16:00:28 by bramalho@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include <stdio.h>
-# include "../libft/libft.h"
-# include "../minilibx-linux/mlx.h"
-# include "../ft_printf/ft_printf.h"
-# include "../GNL/get_next_line.h"
+# include "libft.h"
+# include "mlx.h"
+# include "ft_printf.h"
+# include "get_next_line.h"
 # include "constants.h"
 # include "structs.h"
 
