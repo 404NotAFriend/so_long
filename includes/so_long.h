@@ -6,7 +6,7 @@
 /*   By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 12:46:39 by bramalho@st       #+#    #+#             */
-/*   Updated: 2026/01/16 02:16:35 by bramalho@st      ###   ########.fr       */
+/*   Updated: 2026/01/16 02:57:38 by bramalho@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,6 @@ void	show_victory(t_game *game);
 
 void	cleanup_and_exit(t_game *game, int exit_code);
 void	free_map(t_game *game);
-void	destroy_images(t_game *game);
 void	error_exit(char *message);
 
 #endif
