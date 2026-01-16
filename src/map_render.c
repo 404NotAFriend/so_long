@@ -6,7 +6,7 @@
 /*   By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 11:04:42 by bramalho@st       #+#    #+#             */
-/*   Updated: 2026/01/16 01:32:03 by bramalho@st      ###   ########.fr       */
+/*   Updated: 2026/01/16 01:49:31 by bramalho@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,4 +68,5 @@ void	render_game(t_game *game)
 		}
 		y++;
 	}
+	display_moves(game);
 }

@@ -6,7 +6,7 @@
 /*   By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 01:32:26 by bramalho@st       #+#    #+#             */
-/*   Updated: 2026/01/16 01:36:41 by bramalho@st      ###   ########.fr       */
+/*   Updated: 2026/01/16 01:48:03 by bramalho@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,4 +73,21 @@ void	render_player(t_game *game, int x, int y)
 			draw_transparent_sprite(game, game->gfx.img_player_left,
 				x * TILE_SIZE, y * TILE_SIZE);
 	}
+}
+
+void	display_moves(t_game *game)
+{
+	char	*moves_num;
+	char	*full_text;
+
+	moves_num = ft_itoa(game->player.moves_counter);
+	if (!moves_num)
+		return ;
+	full_text = ft_strjoin("Moves: ", moves_num);
+	free(moves_num);
+	if (!full_text)
+		return ;
+	mlx_string_put(game->gfx.mlx, game->gfx.window,
+		10, 20, 0xFFFFFF, full_text);
+	free(full_text);
 }
