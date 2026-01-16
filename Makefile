@@ -6,7 +6,7 @@
 #    By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/04 13:34:57 by bramalho@st       #+#    #+#              #
-#    Updated: 2026/01/16 01:38:51 by bramalho@st      ###   ########.fr        #
+#    Updated: 2026/01/16 02:19:23 by bramalho@st      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,6 +56,7 @@ SRCS =	$(SRC_DIR)/main.c \
 		$(SRC_DIR)/render_utils.c \
 		$(SRC_DIR)/input_handler.c \
 		$(SRC_DIR)/enemy_handler.c \
+		$(SRC_DIR)/game_screens.c \
 		$(SRC_DIR)/utils.c \
 		$(SRC_DIR)/cleanup.c
 

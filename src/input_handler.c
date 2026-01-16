@@ -6,7 +6,7 @@
 /*   By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 11:04:27 by bramalho@st       #+#    #+#             */
-/*   Updated: 2026/01/16 01:10:58 by bramalho@st      ###   ########.fr       */
+/*   Updated: 2026/01/16 02:18:23 by bramalho@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,12 @@ int	close_window(t_game *game)
 int	key_press(int keycode, t_game *game)
 {
 	if (keycode == KEY_ESC)
-		close_window(game);
+	{
+		if (game->gfx.game_ended)
+			cleanup_and_exit(game, 0);
+		else
+			close_window(game);
+	}
 	else if (keycode == KEY_W)
 		move_player(game, 0, -1);
 	else if (keycode == KEY_S)
@@ -55,9 +60,8 @@ static void	handle_exit(t_game *game)
 	if (game->map.collected_counter == game->map.collectibles_counter
 		&& game->map.enemies_killed == game->map.enemies_counter)
 	{
-		game->player.moves_counter++;
 		ft_printf("🎉 You won in %d moves!\n", game->player.moves_counter);
-		cleanup_and_exit(game, 0);
+		show_victory(game);
 	}
 	else
 	{
@@ -79,7 +83,7 @@ void	move_player(t_game *game, int dx, int dy)
 	if (target_tile == 'N')
 	{
 		ft_printf("💀 You touched an enemy and died!\n");
-		cleanup_and_exit(game, 0);
+		show_game_over(game);
 	}
 	handle_collectible(game, new_x, new_y);
 	if (game->map.grid[game->player.y][game->player.x] == 'P')

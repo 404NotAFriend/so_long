@@ -6,7 +6,7 @@
 /*   By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 21:12:23 by bramalho@st       #+#    #+#             */
-/*   Updated: 2026/01/16 02:02:02 by bramalho@st      ###   ########.fr       */
+/*   Updated: 2026/01/16 02:10:39 by bramalho@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	attack_enemy(t_game *game)
 	else
 		tile = game->map.grid[game->player.y][game->player.x - 1];
 	game->player.is_attacking = 1;
-	render_game(game);
+	render_player_only(game);
 	usleep(150000);
 	if (tile == 'N')
 	{

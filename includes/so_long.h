@@ -6,7 +6,7 @@
 /*   By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 12:46:39 by bramalho@st       #+#    #+#             */
-/*   Updated: 2026/01/16 01:49:09 by bramalho@st      ###   ########.fr       */
+/*   Updated: 2026/01/16 02:16:35 by bramalho@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ void	load_sprites(t_game *game);
 void	render_game(t_game *game);
 void	render_tile(t_game *game, int x, int y, char tile);
 void	render_player(t_game *game, int x, int y);
+void	render_player_only(t_game *game);
 void	display_moves(t_game *game);
 void	print_map(t_game *game);
 void	*get_tile_sprite(t_game *game, char tile);
@@ -82,6 +83,13 @@ void	move_player(t_game *game, int dx, int dy);
 void	attack_enemy(t_game *game);
 void	check_collectible(t_game *game, int x, int y);
 void	check_exit(t_game *game, int x, int y);
+
+/* ========================================================================== */
+/*                              GAME SCREENS                                  */
+/* ========================================================================== */
+
+void	show_game_over(t_game *game);
+void	show_victory(t_game *game);
 
 /* ========================================================================== */
 /*                              CLEANUP & EXIT                                */

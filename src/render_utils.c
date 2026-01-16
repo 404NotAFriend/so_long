@@ -6,7 +6,7 @@
 /*   By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 01:32:26 by bramalho@st       #+#    #+#             */
-/*   Updated: 2026/01/16 01:48:03 by bramalho@st      ###   ########.fr       */
+/*   Updated: 2026/01/16 02:12:47 by bramalho@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,19 @@ void	render_player(t_game *game, int x, int y)
 			draw_transparent_sprite(game, game->gfx.img_player_left,
 				x * TILE_SIZE, y * TILE_SIZE);
 	}
+}
+
+void	render_player_only(t_game *game)
+{
+	int	x;
+	int	y;
+
+	x = game->player.x;
+	y = game->player.y;
+	mlx_put_image_to_window(game->gfx.mlx, game->gfx.window,
+		game->gfx.img_floor, x * TILE_SIZE, y * TILE_SIZE);
+	render_player(game, x, y);
+	mlx_do_sync(game->gfx.mlx);
 }
 
 void	display_moves(t_game *game)

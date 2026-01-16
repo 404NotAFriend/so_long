@@ -6,7 +6,7 @@
 /*   By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 12:47:07 by bramalho@st       #+#    #+#             */
-/*   Updated: 2026/01/16 01:36:21 by bramalho@st      ###   ########.fr       */
+/*   Updated: 2026/01/16 02:16:12 by bramalho@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ typedef struct s_graphics
 	void	*img_attack;
 	void	*img_attack_left;
 	int		tile_size;
+	int		game_ended;
 }	t_graphics;
 
 /* ========================================================================== */
