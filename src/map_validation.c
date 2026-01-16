@@ -6,7 +6,7 @@
 /*   By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 11:04:46 by bramalho@st       #+#    #+#             */
-/*   Updated: 2026/01/15 21:19:20 by bramalho@st      ###   ########.fr       */
+/*   Updated: 2026/01/16 01:16:21 by bramalho@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int	check_rectangular(t_game *game)
 {
 	int	i;
 	int	len;
+	int	current_len;
 
 	if (game->map.height == 0)
 		return (0);
@@ -25,8 +26,10 @@ int	check_rectangular(t_game *game)
 	i = 1;
 	while (i < game->map.height)
 	{
-		if ((int)ft_strlen(game->map.grid[i]) != len
-			&& (int)ft_strlen(game->map.grid[i]) != len + 1)
+		current_len = ft_strlen(game->map.grid[i]);
+		if (game->map.grid[i][current_len - 1] == '\n')
+			current_len--;
+		if (current_len != len)
 			return (0);
 		i++;
 	}

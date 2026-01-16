@@ -6,7 +6,7 @@
 /*   By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 13:51:25 by bramalho@st       #+#    #+#             */
-/*   Updated: 2026/01/15 18:25:25 by bramalho@st      ###   ########.fr       */
+/*   Updated: 2026/01/16 01:11:23 by bramalho@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int	main(int argc, char **argv)
 	if (!check_file_extension(argv[1]))
 		error_exit(ERR_FILE_EXTENSION);
 	ft_bzero(&game, sizeof(t_game));
+	game.player.facing_right = 1;
 	ft_printf("\n\n✅ Arguments Validated!\n");
 	ft_printf("Map file: %s\n", argv[1]);
 	read_map(argv[1], &game);

@@ -6,7 +6,7 @@
 /*   By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 12:10:32 by bramalho@st       #+#    #+#             */
-/*   Updated: 2026/01/15 21:20:51 by bramalho@st      ###   ########.fr       */
+/*   Updated: 2026/01/16 01:17:55 by bramalho@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void	count_elements_loop(t_game *game, int *players, int *exits,
 	int	j;
 
 	i = 0;
+	game->map.enemies_counter = 0;
+	game->map.enemies_killed = 0;
 	while (i < game->map.height)
 	{
 		j = 0;

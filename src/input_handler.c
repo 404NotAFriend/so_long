@@ -6,7 +6,7 @@
 /*   By: bramalho@student.42porto.com <bramalho>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 11:04:27 by bramalho@st       #+#    #+#             */
-/*   Updated: 2026/01/15 21:22:03 by bramalho@st      ###   ########.fr       */
+/*   Updated: 2026/01/16 01:10:58 by bramalho@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,14 +76,12 @@ void	move_player(t_game *game, int dx, int dy)
 	target_tile = game->map.grid[new_y][new_x];
 	if (target_tile == '1')
 		return ;
-	if (target_tile == 'N')  // ← ADD THIS
+	if (target_tile == 'N')
 	{
 		ft_printf("💀 You touched an enemy and died!\n");
 		cleanup_and_exit(game, 0);
 	}
 	handle_collectible(game, new_x, new_y);
-	if (target_tile == 'E')
-		handle_exit(game);
 	if (game->map.grid[game->player.y][game->player.x] == 'P')
 		game->map.grid[game->player.y][game->player.x] = '0';
 	game->player.x = new_x;
@@ -91,4 +89,6 @@ void	move_player(t_game *game, int dx, int dy)
 	game->player.moves_counter++;
 	ft_printf("Moves: %d\n", game->player.moves_counter);
 	render_game(game);
+	if (target_tile == 'E')
+		handle_exit(game);
 }
