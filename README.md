@@ -1,5 +1,7 @@
 <div align="center">
 
+*This project has been created as part of the 42 curriculum by bramalho*
+
 <!-- Animated Header -->
 <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Activities/Video%20Game.png" width="80"/>
 
@@ -524,6 +526,15 @@ Graphics programming opens doors to game development, visualization, and compute
 - [Flood Fill Algorithm](https://en.wikipedia.org/wiki/Flood_fill)
 - [XPM Image Format](http://www.xfree86.org/current/xpm.pdf)
 
+### 🤖 AI Usage Description
+
+**AI tools were used for the following specific tasks:**
+
+#### 1. **Graphics Programming Research**
+- **Tool**: Claude/ChatGPT/Gemini for learning graphics programming concepts
+- **Usage**: Researching MiniLibX functions, sprite handling, and event management
+
+#### 2. **Code Review and Debugging**
 ---
 
 ## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Mobile%20Phone.png" width="25"/> Contact
